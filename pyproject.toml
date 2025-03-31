@@ -1,0 +1,31 @@
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+extend-select = ["F", "E", "W", "I", "E501"]
+
+[project]
+name = "fastapi-production-template"
+version = "0.1.0"
+description = "This is template repository for production applications"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "alembic>=1.15.1",
+    "asyncpg>=0.30.0",
+    "fastapi>=0.115.11",
+    "greenlet>=3.1.1",
+    "mangum>=0.19.0",
+    "pydantic>=2.10.6",
+    "pydantic-settings>=2.8.1",
+    "sqlalchemy>=2.0.39",
+    "uvicorn>=0.34.0",
+]
+
+[dependency-groups]
+dev = [
+    "coverage>=7.7.1",
+    "pytest>=8.3.5",
+    "pytest-asyncio>=0.25.3",
+    "pytest-cov>=6.0.0",
+]
