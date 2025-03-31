@@ -50,6 +50,10 @@ test-local:
 test-docker: docker-build-test
     docker run --rm --env-file="infra/docker-compose/.env.local" {{ LOCAL_IMAGE }}
 
+check:
+    uv run ruff check
+    uv run mypy .
+
 fmt:
-    uv tool run ruff format
-    uv tool run ruff check --fix
+    uv run ruff format
+    uv run ruff check --fix
