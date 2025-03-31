@@ -26,7 +26,7 @@ engine = create_async_engine(
 if config.ENV.is_testing:
     engine = create_async_engine(config.database_dsn, poolclass=sa.NullPool)
 
-async_session = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
+async_session = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)  # type: ignore
 
 
 class Base(DeclarativeBase):

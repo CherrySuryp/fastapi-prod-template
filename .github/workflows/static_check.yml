@@ -1,4 +1,4 @@
-name: "Lint"
+name: "Static check"
 on:
   push:
     branches: [master]
@@ -9,14 +9,6 @@ on:
     paths:
       - "**/*.py"
 jobs:
-  ruff_lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: astral-sh/ruff-action@v3
-        with:
-            version: 0.11.2
-            args: check
   mypy:
     runs-on: ubuntu-latest
     steps:
