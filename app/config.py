@@ -13,11 +13,11 @@ class Environment(str, Enum):
     PRODUCTION = "PRODUCTION"
 
     @property
-    def is_debug(self):
+    def is_debug(self) -> bool:
         return self in (self.LOCAL, self.STAGING, self.TESTING)
 
     @property
-    def is_testing(self):
+    def is_testing(self) -> bool:
         return self == self.TESTING
 
     @property
@@ -59,4 +59,4 @@ class Config(CustomBaseSettings):
         return app_args
 
 
-config = Config()
+config = Config()  # type: ignore
