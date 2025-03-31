@@ -44,7 +44,7 @@ class Config(CustomBaseSettings):
 
     @property
     def database_dsn(self) -> str:
-        return self.DATABASE_DSN.unicode_string()
+        return str(self.DATABASE_DSN)
 
     @property
     def fastapi_args(self) -> dict[str, Any]:
