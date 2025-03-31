@@ -1,0 +1,17 @@
+x-default: &default
+  restart: "no"
+
+services:
+  postgres:
+    <<: *default
+    image: postgres:17
+    container_name: fastapi-lambda_postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=template
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
